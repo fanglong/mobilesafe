@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<device-admin xmlns:andriod="http://schems.android.com/apk/res/android">
+	<uses-policies>
+		<limit-password />	<!--限制密码 -->
+		<watch-login />	 <!-- -->
+		<reset-password />	<!--重置密码 -->
+		<force-lock />	<!--锁屏 -->
+		<wipe-data /> <!-- 出厂设置-->
+	</uses-policies>
+</device-admin>

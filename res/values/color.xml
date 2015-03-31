@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+	<color name="backgroundcolor">#ff404040</color>
+	<color name="textcolor">#ffd0d0d0</color>
+	
+	<color name="tv_main_title">#fff8f8f8</color>
+	<color name="tv_dialog_lostprotected_setup_pwd">#ff000000</color>
+	<color name="lv_dialog_lostprotected">#ffc8c8c8</color>
+	
+	<color name="tv_lostprotect_safemobile">#ffb4b0b5</color>
+</resources>
