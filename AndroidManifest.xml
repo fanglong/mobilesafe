@@ -1,0 +1,107 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fanglong.mobilesafe"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" 
+        />
+    <!-- uses-permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+	<!-- uses-permission end -->
+	
+    <application
+        android:name="com.fanglong.mobilesafe.application.MobileSafeApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!-- receiver -->
+        <receiver android:name="com.fanglong.mobilesafe.receiver.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <!-- WIFI状态改变广播接受者 -->
+        <receiver android:name="com.fanglong.mobilesafe.receiver.ConnectivityChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+		
+        <!-- 手机拨号广播接受者 -->
+        <receiver android:name="com.fanglong.mobilesafe.receiver.CallPhoneReceiver">
+            <intent-filter android:priority="@string/lost_priority_callphone">
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- 手机短信接受者 -->
+        <receiver android:name=".receiver.SMSReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- 设备管理接受者 -->
+        <receiver android:name=".receiver.advice.MobileSafeDeviceAdmin">
+            <meta-data android:name="android.app.device_admin"   
+                android:resource="@xml/myadmin"/>
+            <intent-filter >
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+        <!-- end recevier -->
+        
+        <!-- service -->
+        <service android:name="com.fanglong.mobilesafe.service.MobileSafeService" />
+        <!-- end service -->
+        
+        <!-- activity -->
+        
+        <!-- 启动页面 -->
+        <activity android:name=".activity.splash.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        
+        <!-- 主界面 -->
+        <activity android:name=".activity.main.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@android:style/Theme.NoTitleBar"
+            >
+        </activity>
+        
+        <!-- 手机防盗 -->
+        <activity android:name=".activity.lost.LostProtectedActivity"
+            android:label="@string/title_activity_lostprotected"
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        
+        <!-- 手机防盗 -设置向导 -->
+        <activity android:name=".activity.lost.setup.LostProtectedSetupguideActivity"
+            android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- end activity -->
+        
+       <!-- 高级工具 -->
+        <activity android:name=".activity.tool.AtoolsActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+    </application>
+	
+</manifest>
