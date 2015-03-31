@@ -28,6 +28,6 @@ public class AtoolsActivity extends BaseActivity {
 	
 	@OnClick({R.id.tv_phone_address})
 	public void onClick(View view){
-		//归属地查询
+		//归属地查询  吗。筽                  。
 	}
 }
