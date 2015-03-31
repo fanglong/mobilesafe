@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundcolor"
+    >
+    
+   	<TextView
+   	    android:id="@+id/tv_safemobile" 
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content"
+   	    android:textSize="20dp"
+   	    android:textColor="@color/tv_lostprotect_safemobile"
+   	    android:text="@string/tv_lostprotect_safemobile"
+   	    />
+   	
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="5dip"
+        android:background="#ffffffff" >
+    </View>
+    
+    <CheckBox 
+        android:id="@+id/cb_lostprotect"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#ffe1dfe1"
+        android:text="@string/cb_lostportect_protecting_tip"/>
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="5dip"
+        android:background="#ffffffff" >
+    </View>
+    
+     <TextView 
+         android:id="@+id/tv_reset_lostprotect"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:textColor="@color/tv_lostprotect_safemobile"
+         android:text="@string/tv_reset_lostprotect"
+         android:textSize="20dp"/>
+</LinearLayout>
