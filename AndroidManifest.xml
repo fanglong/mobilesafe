@@ -102,6 +102,9 @@
        <!-- 高级工具 -->
         <activity android:name=".activity.tool.AtoolsActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        
+        <activity android:name=".activity.tool.affiliation.AffiliationActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
     </application>
 	
 </manifest>
