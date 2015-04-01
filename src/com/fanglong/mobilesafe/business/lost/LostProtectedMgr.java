@@ -21,19 +21,19 @@ public class LostProtectedMgr extends BaseMgr implements ILostProtectedMgr {
 
 	@Override
 	public void checkPasswordSetup() {
-		String password = PreferenceUtils.getString(NFC.LostProtectedNotifiations.LostProtectedPwdKey, "");
+		String password = PreferenceUtils.getString(NFC.LostProtectedNotifications.LostProtectedPwdKey, "");
 		//验证密码是否设置
 		if (StringUtils.isEmptyOrNull(password)){
-			NotificationCenter.post(NFC.LostProtectedNotifiations.LostProtectedPwdNotSetUpNotification, null);
+			NotificationCenter.post(NFC.LostProtectedNotifications.LostProtectedPwdNotSetUpNotification, null);
 		} else {
-			NotificationCenter.post(NFC.LostProtectedNotifiations.LostProtectedPwdSetupedNotification, null);
+			NotificationCenter.post(NFC.LostProtectedNotifications.LostProtectedPwdSetupedNotification, null);
 		}
 	}
 
 	@Override
 	public boolean updatePwd(String pwd) {
 		//进行MD5校验
-		PreferenceUtils.putString(NFC.LostProtectedNotifiations.LostProtectedPwdKey, MD5.md5(pwd));
+		PreferenceUtils.putString(NFC.LostProtectedNotifications.LostProtectedPwdKey, MD5.md5(pwd));
 		return true;
 	}
 
@@ -42,23 +42,23 @@ public class LostProtectedMgr extends BaseMgr implements ILostProtectedMgr {
 		if (StringUtils.isEmptyOrNull(pwd)){
 			return false;
 		}
-		String storePassword = PreferenceUtils.getString(NFC.LostProtectedNotifiations.LostProtectedPwdKey, "");
+		String storePassword = PreferenceUtils.getString(NFC.LostProtectedNotifications.LostProtectedPwdKey, "");
 		return storePassword.equals(MD5.md5(pwd));
 	}
 	
 	@Override
 	public void checkSetupGuide() {
-		boolean isSetupGuide = PreferenceUtils.getBoolean(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideKey, false);
+		boolean isSetupGuide = PreferenceUtils.getBoolean(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideKey, false);
 		if (isSetupGuide) {	//已设置
-			NotificationCenter.post(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideNotification, null);
+			NotificationCenter.post(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideNotification, null);
 		} else {	//未设置
-			NotificationCenter.post(NFC.LostProtectedNotifiations.LostProtectedIsNotSetupGuideNotification, null);
+			NotificationCenter.post(NFC.LostProtectedNotifications.LostProtectedIsNotSetupGuideNotification, null);
 		}
 	}
 	
 	@Override
 	public void finishSetupGuide() {
-		PreferenceUtils.putBoolean(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideKey, true);
+		PreferenceUtils.putBoolean(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideKey, true);
 	}
 	
 	@Override
@@ -70,25 +70,25 @@ public class LostProtectedMgr extends BaseMgr implements ILostProtectedMgr {
 	
 	@Override
 	public boolean checkSimBind() {
-		String simNumber = PreferenceUtils.getString(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideSimNumberKey, "");
+		String simNumber = PreferenceUtils.getString(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideSimNumberKey, "");
 		return !StringUtils.isEmptyOrNull(simNumber);
 	}
 	
 	@Override
 	public boolean unBindSim() {
-		PreferenceUtils.putString(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideSimNumberKey, "");
+		PreferenceUtils.putString(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideSimNumberKey, "");
 		return true;
 	}
 	
 	@Override
 	public boolean bindPhone(String phone) {
-		PreferenceUtils.putString(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuidePhoneKey, phone);
+		PreferenceUtils.putString(NFC.LostProtectedNotifications.LostProtectedIsSetupGuidePhoneKey, phone);
 		return true;
 	}
 	
 	@Override
 	public boolean checkIsProtecting() {
-		PreferenceUtils.getBoolean(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideProtectingKey, false);
+		PreferenceUtils.getBoolean(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideProtectingKey, false);
 		return true;
 	}
 	
@@ -96,13 +96,13 @@ public class LostProtectedMgr extends BaseMgr implements ILostProtectedMgr {
 	 * 启用
 	 */
 	public boolean enableProtecting() {
-		PreferenceUtils.putBoolean(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideProtectingKey, true);
+		PreferenceUtils.putBoolean(NFC.LostProtectedNotifications.LostProtectedIsSetupGuideProtectingKey, true);
 		return true;
 	}
 	
 	@Override
 	public String getBindPhone() {
-		return PreferenceUtils.getString(NFC.LostProtectedNotifiations.LostProtectedIsSetupGuidePhoneKey, "");
+		return PreferenceUtils.getString(NFC.LostProtectedNotifications.LostProtectedIsSetupGuidePhoneKey, "");
 	}
 	
 	@Override

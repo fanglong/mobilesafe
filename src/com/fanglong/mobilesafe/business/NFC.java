@@ -24,7 +24,7 @@ public final class NFC {
 	 * @author apple
 	 *
 	 */
-	public class LostProtectedNotifiations{
+	public class LostProtectedNotifications{
 		// 关键字设置
 		/**密码关键字 */
 		public final static String LostProtectedPwdKey = "password";
@@ -49,5 +49,22 @@ public final class NFC {
 		
 		
 		 
+	}
+	
+	/**
+	 * 高级工具
+	 * @author apple
+	 *
+	 */
+	public class AtoolNotification{
+		//关键字设置
+		/**手机归属地查询 - 手机号 */
+		public final static String AtoolAfficationQueryPhoneNumber = "phoneNumber";
+		/**手机归属地查询 - 归属地 */
+		public final static String AtoolAfficationQueryLocation = "location";
+		
+		//通知设置
+		/**手机号归属地查询 */
+		public final static String AtoolAfficationQueryNotification = "AtoolAfficationQueryNotification";
 	}
 }

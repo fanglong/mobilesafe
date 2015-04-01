@@ -97,7 +97,7 @@ public class LostProtectedActivity extends BaseActivity implements OnClickListen
 	 * 处理密码未设置
 	 * @param intent
 	 */
-	@NotificationHandler(name=NFC.LostProtectedNotifiations.LostProtectedPwdNotSetUpNotification)
+	@NotificationHandler(name=NFC.LostProtectedNotifications.LostProtectedPwdNotSetUpNotification)
 	public void handlerCheckPasswordNotSetup(Intent intent){
 		Logger.debug("LostProtectedActivity  用户未设置防盗密码");
 		dialog = new Dialog(LostProtectedActivity.this,R.style.MyDialog);
@@ -118,7 +118,7 @@ public class LostProtectedActivity extends BaseActivity implements OnClickListen
 	 * 处理密码已设置
 	 * @param intent
 	 */
-	@NotificationHandler(name=NFC.LostProtectedNotifiations.LostProtectedPwdSetupedNotification)
+	@NotificationHandler(name=NFC.LostProtectedNotifications.LostProtectedPwdSetupedNotification)
 	public void handlerCheckPasswordSetuped(Intent intent){
 		Logger.debug("LostProtectedActivity  用户已设置防盗密码");
 		dialog = new Dialog(this, R.style.MyDialog);
@@ -186,7 +186,7 @@ public class LostProtectedActivity extends BaseActivity implements OnClickListen
 	 * 已设置 - 向导
 	 * @param handler
 	 */
-	@NotificationHandler(name=NFC.LostProtectedNotifiations.LostProtectedIsSetupGuideNotification)
+	@NotificationHandler(name=NFC.LostProtectedNotifications.LostProtectedIsSetupGuideNotification)
 	public void handlerIsSetupGuideNotification(Intent handler){
 		Logger.debug("LostProtectedActivity   已设置向导 ");
 	}
@@ -195,7 +195,7 @@ public class LostProtectedActivity extends BaseActivity implements OnClickListen
 	 * 未设置 - 向导
 	 * @param handler
 	 */
-	@NotificationHandler(name=NFC.LostProtectedNotifiations.LostProtectedIsNotSetupGuideNotification)
+	@NotificationHandler(name=NFC.LostProtectedNotifications.LostProtectedIsNotSetupGuideNotification)
 	public void handlerIsNotSetupGuideNotification(Intent handler){
 		Logger.debug("LostProtectedActivity   未设置向导 ");
 		Intent guideIntent = new Intent(LostProtectedActivity.this,LostProtectedSetupguideActivity.class);

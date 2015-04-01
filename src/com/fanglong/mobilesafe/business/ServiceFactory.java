@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
-import com.fanglong.mobilesafe.activity.tool.affiliation.AffiliationActivity;
+import com.fanglong.mobilesafe.business.affilication.AffilicationMgr;
 import com.fanglong.mobilesafe.business.affilication.IAffilicationMgr;
 import com.fanglong.mobilesafe.business.auth.IAuthMgr;
 import com.fanglong.mobilesafe.business.lost.ILostProtectedMgr;
@@ -26,7 +26,7 @@ public class ServiceFactory {
 		serviceImpMap.put(IVersionUpgradeMgr.class, VersionUpgradeMgr.class);
 		serviceImpMap.put(ILostProtectedMgr.class, LostProtectedMgr.class);
 		serviceImpMap.put(IGPSLocationMgr.class, GPSLocationMgr.class);
-		serviceImpMap.put(IAffilicationMgr.class, AffiliationActivity.class);
+		serviceImpMap.put(IAffilicationMgr.class, AffilicationMgr.class);
 	}
 
 	private final HashMap<Class<?>, BaseMgr> serviceMap = new HashMap<Class<?>, BaseMgr>();
