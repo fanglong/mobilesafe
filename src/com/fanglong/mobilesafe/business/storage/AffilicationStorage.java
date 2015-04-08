@@ -8,5 +8,4 @@ public class AffilicationStorage extends IAffilicationStorage {
 	public AffilicationStorage(DbUtils privateStorage) {
 		this.privateStorage = privateStorage;
 	}
-	
 }

@@ -14,7 +14,8 @@ public class StorageMgr extends BaseMgr implements IStorageMgr {
 	
 	private IAffilicationStorage affilicationStorage;					//归属地
 	
-	private DbUtils dbUtils;
+	private DbUtils dbUtils;											//业务数据库
+	private DbUtils affilicationDB;										//归属地数据源
 	
 	private DbUpgradeListener privateDbUpgradeListener = new DbUpgradeListener() {
 		
@@ -43,13 +44,21 @@ public class StorageMgr extends BaseMgr implements IStorageMgr {
 		return dbUtils;
 	}
 	
+	public synchronized DbUtils getAffStorage(){
+		if (affilicationDB == null){
+			String dbName = kDatabasePrefix+"_"+kDatabaseSuffix;
+			affilicationDB = DbUtils.create(MobileSafeApplication.getGlobalContext(), dbName, kDatabaseVersion, privateDbUpgradeListener);
+		}
+		return affilicationDB;
+	}
+	
 	/**
 	 * 获取归属地查询
 	 * @return
 	 */
 	public synchronized IAffilicationStorage getAffilicationStorage(){
 		if (this.affilicationStorage == null){
-			this.affilicationStorage = new AffilicationStorage(getPrivateStorage());
+			this.affilicationStorage = new AffilicationStorage(getAffStorage());
 		}
 		return this.affilicationStorage;
 	}

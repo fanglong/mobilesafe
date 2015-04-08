@@ -97,14 +97,17 @@
         <!-- 手机防盗 -设置向导 -->
         <activity android:name=".activity.lost.setup.LostProtectedSetupguideActivity"
             android:theme="@android:style/Theme.NoTitleBar"/>
-        <!-- end activity -->
         
-       <!-- 高级工具 -->
+        <!-- 高级工具 -->
         <activity android:name=".activity.tool.AtoolsActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar"/>
         
         <activity android:name=".activity.tool.affiliation.AffiliationActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
+        
+        <!-- end activity -->
+        
+       
     </application>
 	
 </manifest>
